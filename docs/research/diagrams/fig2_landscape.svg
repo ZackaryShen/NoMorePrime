@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="760" viewBox="0 0 1080 760" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect x="0" y="0" width="1080" height="760" fill="#FFFFFF"/>
+  <text x="540" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#0F172A">业界现有方案全景 —— 三条路线</text>
+  <text x="540" y="64" text-anchor="middle" font-size="13" fill="#64748B">软件把废料「藏」进模型 · 固件把废料「扔」出机器 · 硬件从源头消灭换料</text>
+
+  <!-- ======== 列 1：软件切片器路线 ======== -->
+  <rect x="24" y="92" width="340" height="470" rx="14" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.5"/>
+  <rect x="24" y="92" width="340" height="44" rx="14" fill="#2563EB"/>
+  <rect x="24" y="120" width="340" height="16" fill="#2563EB"/>
+  <text x="194" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="#FFFFFF">路线 A · 软件切片器</text>
+
+  <rect x="40" y="152" width="308" height="120" rx="10" fill="#FFFFFF" stroke="#BFDBFE"/>
+  <text x="54" y="176" font-size="13" font-weight="bold" fill="#1D4ED8">Flush into Infill / Support / Object</text>
+  <text x="54" y="196" font-size="11" fill="#475569">Bambu Studio · OrcaSlicer · PrusaSlicer</text>
+  <text x="54" y="216" font-size="11" fill="#475569">去向：过渡料当作模型内部填充挤出</text>
+  <text x="54" y="234" font-size="11" fill="#B91C1C">局限：必须保留塔（官方文档明示）；</text>
+  <text x="54" y="250" font-size="11" fill="#B91C1C">浅色/透光外壳会透色；整 entity 换色不计量</text>
+
+  <rect x="40" y="284" width="308" height="104" rx="10" fill="#FFFFFF" stroke="#BFDBFE"/>
+  <text x="54" y="308" font-size="13" font-weight="bold" fill="#1D4ED8">塔体形态优化</text>
+  <text x="54" y="328" font-size="11" fill="#475569">锥形塔 · No Sparse Layers · 肋墙/迷你塔</text>
+  <text x="54" y="346" font-size="11" fill="#475569">去向：塔还在，只是更小</text>
+  <text x="54" y="364" font-size="11" fill="#B91C1C">局限：治标不治本，废料仍然 100% 产生</text>
+
+  <rect x="40" y="400" width="308" height="104" rx="10" fill="#FFFFFF" stroke="#BFDBFE"/>
+  <text x="54" y="424" font-size="13" font-weight="bold" fill="#1D4ED8">换料调度 / 排序优化</text>
+  <text x="54" y="444" font-size="11" fill="#475569">同板多件共享换料 · 暗→亮排序 · 层序重排</text>
+  <text x="54" y="462" font-size="11" fill="#475569">去向：减少换料次数 = 减少 purge 总量</text>
+  <text x="54" y="480" font-size="11" fill="#B91C1C">局限：有换色必有 purge，无法归零</text>
+
+  <text x="194" y="540" text-anchor="middle" font-size="12" font-weight="bold" fill="#1D4ED8">废料减量：30–70%（估计值）</text>
+  <text x="194" y="558" text-anchor="middle" font-size="11" fill="#64748B">现状成熟度最高，是本次改造的直接基座</text>
+
+  <!-- ======== 列 2：固件与外部装置 ======== -->
+  <rect x="384" y="92" width="340" height="470" rx="14" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.5"/>
+  <rect x="384" y="92" width="340" height="44" rx="14" fill="#059669"/>
+  <rect x="384" y="120" width="340" height="16" fill="#059669"/>
+  <text x="554" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="#FFFFFF">路线 B · 固件 / 外部装置</text>
+
+  <rect x="400" y="152" width="308" height="120" rx="10" fill="#FFFFFF" stroke="#BBF7D0"/>
+  <text x="414" y="176" font-size="13" font-weight="bold" fill="#047857">Blobifier（Klipper · Happy Hare 插件）</text>
+  <text x="414" y="196" font-size="11" fill="#475569">脉冲式挤出把 purge 挤成料团，掉入料桶</text>
+  <text x="414" y="214" font-size="11" fill="#475569">去向：桶装废料团（可存约 400 团），完全无塔</text>
+  <text x="414" y="232" font-size="11" fill="#B91C1C">局限：废料仍产生；需要额外硬件/固件；</text>
+  <text x="414" y="248" font-size="11" fill="#B91C1C">脉冲参数需逐机调优</text>
+
+  <rect x="400" y="284" width="308" height="104" rx="10" fill="#FFFFFF" stroke="#BBF7D0"/>
+  <text x="414" y="308" font-size="13" font-weight="bold" fill="#047857">Poop Chute + 刮擦块</text>
+  <text x="414" y="328" font-size="11" fill="#475569">Bambu 体系标配：换料挤到侧边刮落</text>
+  <text x="414" y="346" font-size="11" fill="#475569">去向：小型废料块 + 保留小体积 prime tower</text>
+  <text x="414" y="364" font-size="11" fill="#B91C1C">局限：大量 purge 时废块堆积/堵塞风险</text>
+
+  <rect x="400" y="400" width="308" height="104" rx="10" fill="#FFFFFF" stroke="#BBF7D0"/>
+  <text x="414" y="424" font-size="13" font-weight="bold" fill="#047857">Ramming / Tip Forming（Prusa MMU）</text>
+  <text x="414" y="444" font-size="11" fill="#475569">卸料前把旧料压实成型，从源头减少残留</text>
+  <text x="414" y="462" font-size="11" fill="#475569">去向：所需 V_flush 本身变小</text>
+  <text x="414" y="480" font-size="11" fill="#B91C1C">局限：仍需塔兜底；对耗材弹性敏感</text>
+
+  <text x="554" y="540" text-anchor="middle" font-size="12" font-weight="bold" fill="#047857">废料减量：有限，主要价值在「无塔化」</text>
+  <text x="554" y="558" text-anchor="middle" font-size="11" fill="#64748B">证明了无塔换料在工程上完全可行</text>
+
+  <!-- ======== 列 3：硬件结构路线 ======== -->
+  <rect x="744" y="92" width="312" height="470" rx="14" fill="#FAF5FF" stroke="#DDD6FE" stroke-width="1.5"/>
+  <rect x="744" y="92" width="312" height="44" rx="14" fill="#7C3AED"/>
+  <rect x="744" y="120" width="312" height="16" fill="#7C3AED"/>
+  <text x="900" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="#FFFFFF">路线 C · 硬件结构</text>
+
+  <rect x="760" y="152" width="280" height="120" rx="10" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <text x="774" y="176" font-size="13" font-weight="bold" fill="#6D28D9">Tool Changer 多喷头</text>
+  <text x="774" y="196" font-size="11" fill="#475569">Snapmaker U1 · Prusa XL · Bambu H2C · E3D</text>
+  <text x="774" y="214" font-size="11" fill="#475569">换头不换料，无混合段，几乎零 purge</text>
+  <text x="774" y="232" font-size="11" fill="#B91C1C">局限：整机成本高；喷头数量限制色数；</text>
+  <text x="774" y="248" font-size="11" fill="#B91C1C">仅覆盖高端产品线</text>
+
+  <rect x="760" y="284" width="280" height="104" rx="10" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <text x="774" y="308" font-size="13" font-weight="bold" fill="#6D28D9">IDEX 独立双头</text>
+  <text x="774" y="328" font-size="11" fill="#475569">Snapmaker J1s 等：两色各打各的</text>
+  <text x="774" y="346" font-size="11" fill="#475569">去向：双色场景零换料</text>
+  <text x="774" y="364" font-size="11" fill="#B91C1C">局限：双色天花板；双头同步打印受限</text>
+
+  <rect x="760" y="400" width="280" height="104" rx="10" fill="#FFFFFF" stroke="#DDD6FE"/>
+  <text x="774" y="424" font-size="13" font-weight="bold" fill="#6D28D9">多喷嘴转塔（AtomForm Palette 300）</text>
+  <text x="774" y="444" font-size="11" fill="#475569">12 喷嘴 OmniElement，宣称过渡废料 -90%</text>
+  <text x="774" y="462" font-size="11" fill="#475569">去向：无换料 = 无过渡料</text>
+  <text x="774" y="480" font-size="11" fill="#B91C1C">局限：全新品类，成本与可靠性待验证</text>
+
+  <text x="900" y="540" text-anchor="middle" font-size="12" font-weight="bold" fill="#6D28D9">废料减量：90–100%</text>
+  <text x="900" y="558" text-anchor="middle" font-size="11" fill="#64748B">但只属于买得起硬件的用户</text>
+
+  <!-- ======== 底部：学术横条 ======== -->
+  <rect x="24" y="586" width="1032" height="140" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="54" y="616" font-size="14" font-weight="bold" fill="#1E293B">学术界相关方向（交叉支撑）</text>
+  <rect x="54" y="632" width="310" height="76" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="68" y="656" font-size="12" font-weight="bold" fill="#334155">ITC 工具路径优化（SSRN 4655383）</text>
+  <text x="68" y="676" font-size="11" fill="#64748B">多材料打印效率平均提升 1.7×</text>
+  <text x="68" y="694" font-size="11" fill="#64748B">换料调度可建模为组合优化问题</text>
+  <rect x="384" y="632" width="310" height="76" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="398" y="656" font-size="12" font-weight="bold" fill="#334155">Inter-layer Clustering（层间聚类）</text>
+  <text x="398" y="676" font-size="11" fill="#64748B">重排切片顺序减少换色次数</text>
+  <text x="398" y="694" font-size="11" fill="#64748B">与软件路线 A 可叠加</text>
+  <rect x="714" y="632" width="322" height="76" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="728" y="656" font-size="12" font-weight="bold" fill="#334155">FGM 渐变材料路径（arXiv 2505.08093）</text>
+  <text x="728" y="676" font-size="11" fill="#64748B">把「渐变」本身变成设计自由度</text>
+  <text x="728" y="694" font-size="11" fill="#64748B">反向思路：不排掉过渡料，而是利用它</text>
+
+  <text x="540" y="750" text-anchor="middle" font-size="12" fill="#94A3B8">注：路线 A/B/C 可组合 —— 例如「软件藏料为主 + 固件兜底」是低成本高覆盖的组合方向</text>
+</svg>

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="660" viewBox="0 0 1080 660" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <linearGradient id="meltGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#DC2626"/>
+      <stop offset="0.5" stop-color="#A855F7"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="towerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#DBEAFE"/>
+      <stop offset="1" stop-color="#93C5FD"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1080" height="660" fill="#FFFFFF"/>
+  <text x="540" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#0F172A">换料时发生了什么 —— 擦除塔的物理根源</text>
+  <text x="540" y="64" text-anchor="middle" font-size="13" fill="#64748B">单喷嘴多色系统必须把熔腔内的过渡料完全排出，并重建稳定压力，才能继续打印新颜色</text>
+
+  <!-- ======== 左侧：喷嘴物理 ======== -->
+  <rect x="30" y="90" width="470" height="330" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="265" y="122" text-anchor="middle" font-size="16" font-weight="bold" fill="#1E293B">① 单喷嘴换料的物理过程</text>
+
+  <!-- heat block / nozzle -->
+  <rect x="90" y="150" width="150" height="70" rx="8" fill="#E2E8F0" stroke="#94A3B8"/>
+  <rect x="110" y="160" width="110" height="50" rx="5" fill="#FFF7ED" stroke="#FDBA74"/>
+  <rect x="118" y="168" width="94" height="34" rx="4" fill="url(#meltGrad)" opacity="0.85"/>
+  <path d="M140 220 L200 220 L170 262 Z" fill="#E2E8F0" stroke="#94A3B8"/>
+  <path d="M152 220 L188 220 L170 246 Z" fill="url(#meltGrad)" opacity="0.85"/>
+  <circle cx="170" cy="268" r="4" fill="#2563EB"/>
+  <text x="255" y="180" font-size="12" fill="#334155">新料（蓝色）正在进入</text>
+  <text x="255" y="198" font-size="12" fill="#334155">熔腔内残留旧料（红色）</text>
+  <text x="255" y="224" font-size="13" font-weight="bold" fill="#B91C1C">过渡混合段：颜色渐变，</text>
+  <text x="255" y="242" font-size="13" font-weight="bold" fill="#B91C1C">既不是旧色也不是新色</text>
+
+  <!-- purge volume callout -->
+  <rect x="80" y="288" width="370" height="110" rx="10" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="265" y="314" text-anchor="middle" font-size="13" font-weight="bold" fill="#B91C1C">这段过渡料必须挤出去，且必须挤到看不见的地方</text>
+  <text x="265" y="338" text-anchor="middle" font-size="12" fill="#7F1D1D">所需排出体积 V_flush 由「换料体积矩阵」决定</text>
+  <text x="265" y="358" text-anchor="middle" font-size="12" fill="#7F1D1D">默认 280 mm³ × 系数 0.3 ≈ 84 mm³，最深色对（白→黄）可达 800 mm³</text>
+  <text x="265" y="380" text-anchor="middle" font-size="11" fill="#9F1239">对应配置：flush_volumes_matrix × flush_multiplier（Orca 系代码）</text>
+
+  <!-- ======== 右侧：塔的三重职责 ======== -->
+  <rect x="530" y="90" width="520" height="330" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="790" y="122" text-anchor="middle" font-size="16" font-weight="bold" fill="#1E293B">② 擦除塔（Wipe/Prime Tower）的三重职责</text>
+
+  <!-- tower drawing -->
+  <rect x="570" y="170" width="120" height="220" rx="6" fill="url(#towerGrad)" stroke="#3B82F6"/>
+  <line x1="570" y1="206" x2="690" y2="206" stroke="#60A5FA" stroke-dasharray="4 3"/>
+  <line x1="570" y1="242" x2="690" y2="242" stroke="#60A5FA" stroke-dasharray="4 3"/>
+  <line x1="570" y1="278" x2="690" y2="278" stroke="#60A5FA" stroke-dasharray="4 3"/>
+  <line x1="570" y1="314" x2="690" y2="314" stroke="#60A5FA" stroke-dasharray="4 3"/>
+  <line x1="570" y1="350" x2="690" y2="350" stroke="#60A5FA" stroke-dasharray="4 3"/>
+  <text x="630" y="410" text-anchor="middle" font-size="12" fill="#475569">逐层堆叠的专用塔体</text>
+  <text x="630" y="428" text-anchor="middle" font-size="11" fill="#64748B">高度 = 最高换料层</text>
+
+  <!-- duty cards -->
+  <rect x="720" y="150" width="310" height="76" rx="10" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <text x="740" y="176" font-size="13" font-weight="bold" fill="#1D4ED8">职责 1 · 排出过渡料（防串色）</text>
+  <text x="740" y="198" font-size="11.5" fill="#334155">把熔腔内的渐变段完全挤出，</text>
+  <text x="740" y="215" font-size="11.5" fill="#334155">确保模型上只出现纯色</text>
+
+  <rect x="720" y="236" width="310" height="76" rx="10" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <text x="740" y="262" font-size="13" font-weight="bold" fill="#1D4ED8">职责 2 · 重建稳定压力 / 流量</text>
+  <text x="740" y="284" font-size="11.5" fill="#334155">换料回抽后压力清零，需要一段</text>
+  <text x="740" y="301" font-size="11.5" fill="#334155">连续挤出把熔体压力重新建立起来</text>
+
+  <rect x="720" y="322" width="310" height="76" rx="10" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <text x="740" y="348" font-size="13" font-weight="bold" fill="#1D4ED8">职责 3 · Prime 可靠出料</text>
+  <text x="740" y="370" font-size="11.5" fill="#334155">首次下料与每次换料后确认喷嘴</text>
+  <text x="740" y="387" font-size="11.5" fill="#334155">正常出丝，避免断料打空</text>
+
+  <!-- ======== 底部：代价 ======== -->
+  <text x="540" y="462" text-anchor="middle" font-size="16" font-weight="bold" fill="#1E293B">③ 代价：为什么我们想消灭它</text>
+
+  <rect x="30" y="480" width="245" height="150" rx="12" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="152" y="512" text-anchor="middle" font-size="26" font-weight="bold" fill="#DC2626">50–90%</text>
+  <text x="152" y="538" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#7F1D1D">额外耗材浪费</text>
+  <text x="152" y="560" text-anchor="middle" font-size="11" fill="#991B1B">多色小件场景下，塔的重量</text>
+  <text x="152" y="577" text-anchor="middle" font-size="11" fill="#991B1B">经常超过模型本身</text>
+
+  <rect x="295" y="480" width="245" height="150" rx="12" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="417" y="512" text-anchor="middle" font-size="26" font-weight="bold" fill="#DC2626">时间 ×N</text>
+  <text x="417" y="538" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#7F1D1D">打印时间被拉长</text>
+  <text x="417" y="560" text-anchor="middle" font-size="11" fill="#991B1B">塔的体积全部要逐层挤出，</text>
+  <text x="417" y="577" text-anchor="middle" font-size="11" fill="#991B1B">换料越频繁塔越大越慢</text>
+
+  <rect x="560" y="480" width="245" height="150" rx="12" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="682" y="512" text-anchor="middle" font-size="26" font-weight="bold" fill="#DC2626">整塔陪跑</text>
+  <text x="682" y="538" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#7F1D1D">高度必须到最高换料层</text>
+  <text x="682" y="560" text-anchor="middle" font-size="11" fill="#991B1B">如果最后一次换色在模型顶部，</text>
+  <text x="682" y="577" text-anchor="middle" font-size="11" fill="#991B1B">下方所有塔层都是白打的</text>
+
+  <rect x="825" y="480" width="245" height="150" rx="12" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="947" y="512" text-anchor="middle" font-size="26" font-weight="bold" fill="#DC2626">占地 + 风险</text>
+  <text x="947" y="538" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#7F1D1D">平台占用与打印失败点</text>
+  <text x="947" y="560" text-anchor="middle" font-size="11" fill="#991B1B">压缩排版空间；塔越高越容易</text>
+  <text x="947" y="577" text-anchor="middle" font-size="11" fill="#991B1B">倒塔，一倒全盘皆输</text>
+</svg>

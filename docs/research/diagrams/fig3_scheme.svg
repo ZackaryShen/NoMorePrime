@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="820" viewBox="0 0 1080 820" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <defs>
+    <linearGradient id="absorbGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FED7AA"/>
+      <stop offset="1" stop-color="#FDBA74"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1080" height="820" fill="#FFFFFF"/>
+  <text x="540" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#0F172A">核心方案：内部擦除吸收区（Internal Purge Reservoir）· 对抗审查修订版</text>
+  <text x="540" y="64" text-anchor="middle" font-size="13" fill="#64748B">把过渡料「藏」进模型自身的内部填充 —— 跨层预算、精确计量、分级兜底，塔从「必选项」降级为「条件项」</text>
+
+  <!-- ======== 左：模型剖面 ======== -->
+  <rect x="24" y="88" width="530" height="386" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="289" y="118" text-anchor="middle" font-size="15" font-weight="bold" fill="#1E293B">模型剖面：吸收区藏在哪</text>
+
+  <!-- outer shell -->
+  <rect x="84" y="140" width="360" height="290" rx="6" fill="#FFFFFF" stroke="#2563EB" stroke-width="4"/>
+  <!-- normal sparse infill upper -->
+  <g stroke="#BFDBFE" stroke-width="1.6">
+    <line x1="110" y1="160" x2="418" y2="160"/><line x1="110" y1="178" x2="418" y2="178"/>
+    <line x1="110" y1="196" x2="418" y2="196"/><line x1="110" y1="214" x2="418" y2="214"/>
+    <line x1="140" y1="152" x2="140" y2="222"/><line x1="180" y1="152" x2="180" y2="222"/>
+    <line x1="220" y1="152" x2="220" y2="222"/><line x1="260" y1="152" x2="260" y2="222"/>
+    <line x1="300" y1="152" x2="300" y2="222"/><line x1="340" y1="152" x2="340" y2="222"/>
+    <line x1="380" y1="152" x2="380" y2="222"/>
+    <line x1="110" y1="330" x2="418" y2="330"/><line x1="110" y1="348" x2="418" y2="348"/>
+    <line x1="110" y1="366" x2="418" y2="366"/><line x1="110" y1="384" x2="418" y2="384"/>
+    <line x1="110" y1="402" x2="418" y2="402"/>
+    <line x1="150" y1="322" x2="150" y2="412"/><line x1="195" y1="322" x2="195" y2="412"/>
+    <line x1="240" y1="322" x2="240" y2="412"/><line x1="285" y1="322" x2="285" y2="412"/>
+    <line x1="330" y1="322" x2="330" y2="412"/><line x1="375" y1="322" x2="375" y2="412"/>
+  </g>
+  <!-- absorption zone L10-L13 -->
+  <rect x="110" y="232" width="308" height="82" rx="4" fill="url(#absorbGrad)" opacity="0.35"/>
+  <g stroke="#EA580C" stroke-width="2.2" fill="none">
+    <rect x="128" y="246" width="272" height="54" rx="26"/>
+    <rect x="146" y="258" width="236" height="30" rx="15"/>
+    <rect x="164" y="268" width="200" height="10" rx="5"/>
+  </g>
+  <!-- lightning = toolchange -->
+  <g transform="translate(438,240)">
+    <polygon points="10,0 0,18 8,18 4,34 18,13 10,13 14,0" fill="#DC2626"/>
+  </g>
+  <text x="452" y="278" font-size="11.5" font-weight="bold" fill="#DC2626">换料发生在</text>
+  <text x="452" y="294" font-size="11.5" font-weight="bold" fill="#DC2626">第 10 层</text>
+
+  <!-- layer labels -->
+  <text x="70" y="165" font-size="10" fill="#64748B" text-anchor="end">L7</text>
+  <text x="70" y="275" font-size="10" fill="#EA580C" text-anchor="end" font-weight="bold">L10–13</text>
+  <text x="70" y="370" font-size="10" fill="#64748B" text-anchor="end">L16</text>
+
+  <!-- annotations -->
+  <rect x="60" y="444" width="470" height="24" rx="6" fill="#FFF7ED" stroke="#FED7AA"/>
+  <text x="74" y="461" font-size="11" fill="#9A3412">约束：吸收区距外壳 ≥ N 条壁厚、距可见顶/底面 ≥ M 层（防透色）· 同心连续路径维持压力</text>
+
+  <text x="289" y="492" text-anchor="middle" font-size="12" fill="#475569">橙色 = 换料层附近的加密吸收区：过渡料在此被「精确计量地」消耗，模型外观零变化</text>
+
+  <!-- ======== 右：分级兜底流程 ======== -->
+  <rect x="574" y="88" width="482" height="386" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="815" y="118" text-anchor="middle" font-size="15" font-weight="bold" fill="#1E293B">每次换料的吸收决策流</text>
+
+  <rect x="610" y="138" width="410" height="44" rx="10" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="815" y="157" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">换料 old → new：需求 V（查矩阵 × 系数）</text>
+  <text x="815" y="174" text-anchor="middle" font-size="10.5" fill="#64748B">先扣除换料后首段「压力建立损耗」再入账</text>
+
+  <line x1="815" y1="182" x2="815" y2="200" stroke="#94A3B8" stroke-width="1.5"/>
+  <polygon points="815,200 809,192 821,192" fill="#94A3B8"/>
+
+  <rect x="610" y="202" width="410" height="42" rx="10" fill="#EFF6FF" stroke="#93C5FD"/>
+  <text x="815" y="221" text-anchor="middle" font-size="12" font-weight="bold" fill="#1D4ED8">容量普查：本层 + 邻层内部填充可吸收体积 ≥ V ?</text>
+  <text x="815" y="237" text-anchor="middle" font-size="10.5" fill="#64748B">扫描 sparse infill / 吸收区 entity，跨层分摊预算</text>
+
+  <line x1="700" y1="244" x2="700" y2="262" stroke="#059669" stroke-width="2"/>
+  <polygon points="700,262 694,254 706,254" fill="#059669"/>
+  <text x="688" y="258" text-anchor="end" font-size="10.5" font-weight="bold" fill="#059669">是</text>
+  <line x1="930" y1="244" x2="930" y2="330" stroke="#D97706" stroke-width="2"/>
+  <polygon points="930,330 924,322 936,322" fill="#D97706"/>
+  <text x="942" y="290" font-size="10.5" font-weight="bold" fill="#D97706">否</text>
+
+  <rect x="596" y="264" width="290 " height="46" rx="10" fill="#F0FDF4" stroke="#86EFAC"/>
+  <text x="741" y="283" text-anchor="middle" font-size="12" font-weight="bold" fill="#047857">① 内部吸收区加密填充（含已有 sparse infill）</text>
+  <text x="741" y="300" text-anchor="middle" font-size="10.5" fill="#166534">路径长 × 截面 h(w−h(1−π/4)) = V，继承流量校正</text>
+
+  <line x1="741" y1="310" x2="741" y2="330" stroke="#94A3B8" stroke-width="1.5"/>
+
+  <rect x="770" y="332" width="250" height="42" rx="10" fill="#FFFBEB" stroke="#FCD34D"/>
+  <text x="895" y="350" text-anchor="middle" font-size="12" font-weight="bold" fill="#B45309">② 冲进 Support（可丢弃件）</text>
+  <text x="895" y="366" text-anchor="middle" font-size="10.5" fill="#92400E">flush_into_support 现有机制复用</text>
+
+  <line x1="895" y1="374" x2="895" y2="390" stroke="#94A3B8" stroke-width="1.5"/>
+
+  <rect x="770" y="392" width="250" height="52" rx="10" fill="#FEF2F2" stroke="#FCA5A5"/>
+  <text x="895" y="412" text-anchor="middle" font-size="12" font-weight="bold" fill="#B91C1C">③ 条件化迷你塔（显式兜底）</text>
+  <text x="895" y="428" text-anchor="middle" font-size="10.5" fill="#991B1B">仅在普查失败层启用 · 按需小体积 · Local-Z 场景强制走此路</text>
+
+  <!-- ======== 底部：容量账 ======== -->
+  <text x="540" y="510" text-anchor="middle" font-size="16" font-weight="bold" fill="#1E293B">对抗审查算出的容量账（决定方案形态）</text>
+
+  <rect x="30" y="528" width="330" height="130" rx="12" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="195" y="558" text-anchor="middle" font-size="13" font-weight="bold" fill="#B91C1C">单层根本装不下最差情况</text>
+  <text x="195" y="584" text-anchor="middle" font-size="12" fill="#7F1D1D">60×60×0.2 mm 层 · 15% 网格 = 108 mm³</text>
+  <text x="195" y="604" text-anchor="middle" font-size="12" fill="#7F1D1D">同层 100% 打满也仅 720 mm³</text>
+  <text x="195" y="630" text-anchor="middle" font-size="12" font-weight="bold" fill="#991B1B">白→黄需求 800 mm³ → 必须跨层分摊</text>
+
+  <rect x="380" y="528" width="330" height="130" rx="12" fill="#FFFBEB" stroke="#FDE68A"/>
+  <text x="545" y="558" text-anchor="middle" font-size="13" font-weight="bold" fill="#B45309">计量必须校正，不能拍脑袋</text>
+  <text x="545" y="584" text-anchor="middle" font-size="12" fill="#92400E">实际截面比矩形小约 10%（仓库塔计量公式）</text>
+  <text x="545" y="604" text-anchor="middle" font-size="12" fill="#92400E">塔尚需 extra_flow / extra_spacing 两个经验因子</text>
+  <text x="545" y="630" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400E">吸收区需另立校正因子并实验标定</text>
+
+  <rect x="730" y="528" width="330" height="130" rx="12" fill="#EFF6FF" stroke="#BFDBFE"/>
+  <text x="895" y="558" text-anchor="middle" font-size="13" font-weight="bold" fill="#1D4ED8">好消息：地基比预想的好</text>
+  <text x="895" y="584" text-anchor="middle" font-size="12" fill="#1E3A8A">填充实体在塔计划之前就已生成（posInfill）</text>
+  <text x="895" y="604" text-anchor="middle" font-size="12" fill="#1E3A8A">「换料后先打吸收区」的层内顺序已有现成保证</text>
+  <text x="895" y="630" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E40AF">数据流闭环成立，缺的只是规划器与登记通道</text>
+
+  <!-- 修订要点 -->
+  <rect x="30" y="678" width="1030" height="120" rx="12" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="54" y="706" font-size="13" font-weight="bold" fill="#1E293B">对抗审查后的四个修订要点（原方案被证伪处）</text>
+  <text x="54" y="732" font-size="12" fill="#334155">① 目标从「消除塔」改为「塔最小化/条件化」—— 兜底塔必须按必选项设计全套布局与冲突检测，否则状态空间反而失控</text>
+  <text x="54" y="756" font-size="12" fill="#334155">② 放弃「单层精确计量」，改为 object 级跨层吸收预算 + 全模型容量普查，普查失败层显式回退</text>
+  <text x="54" y="780" font-size="12" fill="#334155">③ 新建子 entity / 插入 entity 登记通道（现有 per-entity×per-copy 整体换色无法表达「路径中段计量」）</text>
+  <text x="54" y="796" font-size="12" fill="#94A3B8">—— 详见调研文档「对抗审查结论」章节，[blocker]×2、[major]×7 全部有代码出处</text>
+</svg>

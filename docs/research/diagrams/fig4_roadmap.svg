@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="640" viewBox="0 0 1080 640" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+  <rect x="0" y="0" width="1080" height="640" fill="#FFFFFF"/>
+  <text x="540" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#0F172A">实施路线：四个阶段，每阶段设验证门</text>
+  <text x="540" y="64" text-anchor="middle" font-size="13" fill="#64748B">先量化、再解耦、后规划 —— 每一步都可独立验证、独立交付价值</text>
+
+  <!-- Phase 0 -->
+  <rect x="24" y="92" width="240" height="330" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="24" y="92" width="240" height="46" rx="14" fill="#64748B"/>
+  <rect x="24" y="122" width="240" height="16" fill="#64748B"/>
+  <text x="144" y="121" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">P0 · 基线审计</text>
+  <text x="144" y="160" text-anchor="middle" font-size="11" fill="#94A3B8">约 1–2 周 · 无风险</text>
+  <text x="40" y="190" font-size="12" fill="#334155">· GCode 换料审计工具：逐次换料</text>
+  <text x="40" y="210" font-size="12" fill="#334155">  统计 V、去向（塔/填充/支撑）</text>
+  <text x="40" y="230" font-size="12" fill="#334155">· 现有 flush_into_infill 实测：</text>
+  <text x="40" y="250" font-size="12" fill="#334155">  废料减量%、透色率、强度对比</text>
+  <text x="40" y="270" font-size="12" fill="#334155">· 建立标准测试件族（色块/嵌件/</text>
+  <text x="40" y="290" font-size="12" fill="#334155">  大件少换色/小件多换色）</text>
+  <rect x="40" y="330" width="208" height="72" rx="8" fill="#F0FDF4" stroke="#86EFAC"/>
+  <text x="52" y="352" font-size="11" font-weight="bold" fill="#047857">验证门 Gate 0</text>
+  <text x="52" y="370" font-size="10.5" fill="#166534">审计工具能对任一 GCode 输出</text>
+  <text x="52" y="386" font-size="10.5" fill="#166534">purge 分配报告，数字可复现</text>
+
+  <!-- Phase 1 -->
+  <rect x="288" y="92" width="240" height="330" rx="14" fill="#F8FAFC" stroke="#93C5FD" stroke-width="1.5"/>
+  <rect x="288" y="92" width="240" height="46" rx="14" fill="#2563EB"/>
+  <rect x="288" y="122" width="240" height="16" fill="#2563EB"/>
+  <text x="408" y="121" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">P1 · 解耦与去塔依赖</text>
+  <text x="408" y="160" text-anchor="middle" font-size="11" fill="#94A3B8">约 2–3 周 · 行为兼容</text>
+  <text x="304" y="190" font-size="12" fill="#334155">· 把 mark_wiping_extrusions 从</text>
+  <text x="304" y="210" font-size="12" fill="#334155">  _make_wipe_tower 中解耦出来</text>
+  <text x="304" y="230" font-size="12" fill="#334155">· 无塔时 flush_into_* 真正生效</text>
+  <text x="304" y="250" font-size="12" fill="#334155">  （现状是死键）</text>
+  <text x="304" y="270" font-size="12" fill="#334155">· 无塔换料 purge 实体路径：</text>
+  <text x="304" y="290" font-size="12" fill="#334155">  set_extruder 注入吸收 entity</text>
+  <text x="304" y="310" font-size="12" fill="#334155">· Local-Z / painted-mask 显式</text>
+  <text x="304" y="330" font-size="12" fill="#334155">  回退塔，防止功能回归</text>
+  <rect x="304" y="356" width="208" height="52" rx="8" fill="#F0FDF4" stroke="#86EFAC"/>
+  <text x="316" y="378" font-size="11" font-weight="bold" fill="#047857">验证门 Gate 1</text>
+  <text x="316" y="396" font-size="10.5" fill="#166534">无塔切片成功，测试件无串色</text>
+
+  <!-- Phase 2 -->
+  <rect x="552" y="92" width="240" height="330" rx="14" fill="#F8FAFC" stroke="#FCD34D" stroke-width="1.5"/>
+  <rect x="552" y="92" width="240" height="46" rx="14" fill="#D97706"/>
+  <rect x="552" y="122" width="240" height="16" fill="#D97706"/>
+  <text x="672" y="121" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">P2 · 吸收区 MVP</text>
+  <text x="672" y="160" text-anchor="middle" font-size="11" fill="#94A3B8">约 3–4 周 · 手动圈定</text>
+  <text x="568" y="190" font-size="12" fill="#334155">· modifier mesh 圈定吸收区</text>
+  <text x="568" y="210" font-size="12" fill="#334155">  （复用 PARAMETER_MODIFIER 通道）</text>
+  <text x="568" y="230" font-size="12" fill="#334155">· 容量普查器 + 跨层吸收预算</text>
+  <text x="568" y="250" font-size="12" fill="#334155">· 吸收区同心路径生成器</text>
+  <text x="568" y="270" font-size="12" fill="#334155">· 计量：h(w−h(1−π/4)) + 校正因子</text>
+  <text x="568" y="290" font-size="12" fill="#334155">· 普查失败 → 条件化迷你塔兜底</text>
+  <rect x="568" y="330" width="208" height="72" rx="8" fill="#F0FDF4" stroke="#86EFAC"/>
+  <text x="580" y="352" font-size="11" font-weight="bold" fill="#047857">验证门 Gate 2</text>
+  <text x="580" y="370" font-size="10.5" fill="#166534">手动吸收区打印：外观零可见差异，</text>
+  <text x="580" y="386" font-size="10.5" fill="#166534">剖面显示过渡料被限制在吸收区</text>
+
+  <!-- Phase 3 -->
+  <rect x="816" y="92" width="240" height="330" rx="14" fill="#F8FAFC" stroke="#86EFAC" stroke-width="1.5"/>
+  <rect x="816" y="92" width="240" height="46" rx="14" fill="#059669"/>
+  <rect x="816" y="122" width="240" height="16" fill="#059669"/>
+  <text x="936" y="121" text-anchor="middle" font-size="14" font-weight="bold" fill="#FFFFFF">P3 · 自动规划闭环</text>
+  <text x="936" y="160" text-anchor="middle" font-size="11" fill="#94A3B8">约 4–6 周 · 全自动</text>
+  <text x="832" y="190" font-size="12" fill="#334155">· 自动吸收区生成（无需用户圈定）</text>
+  <text x="832" y="210" font-size="12" fill="#334155">· 换料调度联合优化（换料时刻</text>
+  <text x="832" y="230" font-size="12" fill="#334155">  与吸收容量联合求解）</text>
+  <text x="832" y="250" font-size="12" fill="#334155">· 校正因子标定（DOE 实验）</text>
+  <text x="832" y="270" font-size="12" fill="#334155">· UI：吸收预算可视化 + 透色</text>
+  <text x="832" y="290" font-size="12" fill="#334155">  风险提示 + 覆盖率报告</text>
+  <rect x="832" y="330" width="208" height="72" rx="8" fill="#F0FDF4" stroke="#86EFAC"/>
+  <text x="844" y="352" font-size="11" font-weight="bold" fill="#047857">验证门 Gate 3</text>
+  <text x="844" y="370" font-size="10.5" fill="#166534">测试件族全绿：废料 -60% 以上、</text>
+  <text x="844" y="386" font-size="10.5" fill="#166534">透色率不高于有塔基线</text>
+
+  <!-- arrows -->
+  <line x1="264" y1="250" x2="286" y2="250" stroke="#94A3B8" stroke-width="2"/>
+  <polygon points="288,250 280,245 280,255" fill="#94A3B8"/>
+  <line x1="528" y1="250" x2="550" y2="250" stroke="#94A3B8" stroke-width="2"/>
+  <polygon points="552,250 544,245 544,255" fill="#94A3B8"/>
+  <line x1="792" y1="250" x2="814" y2="250" stroke="#94A3B8" stroke-width="2"/>
+  <polygon points="816,250 808,245 808,255" fill="#94A3B8"/>
+
+  <!-- 风险条 -->
+  <rect x="24" y="446" width="1032" height="160" rx="14" fill="#FFF7ED" stroke="#FED7AA"/>
+  <text x="48" y="476" font-size="13" font-weight="bold" fill="#9A3412">风险与对策（对抗审查 + 专利调研结论）</text>
+  <text x="48" y="502" font-size="12" fill="#7C2D12">专利：擦除塔本身是 Stratasys 专利领地（EP2964450，正与 Bambu 在 UPC/美国诉讼中）——「去塔」方向反而规避其权利要求；</text>
+  <text x="48" y="522" font-size="12" fill="#7C2D12">内部吸收区属软件路径规划，公开诉讼中未见对应权利要求，立项前建议做一次正式 FTO 检索</text>
+  <text x="48" y="548" font-size="12" fill="#7C2D12">工程：兜底塔让方案变成「双路径系统」，状态空间倍增 —— P1 起就把「塔开启/关闭」作为一等公民用例覆盖，配置键优先级矩阵先行定义</text>
+  <text x="48" y="574" font-size="12" fill="#7C2D12">物理：计量校正因子无先例可抄 —— P2 用 DOE 实验标定，阈值全部带出处注释；不设拍脑袋魔数</text>
+  <text x="48" y="596" font-size="11" fill="#B45309">底线：Local-Z / painted-mask 场景任何阶段都不允许静默回归 —— 回归测试先行</text>
+</svg>
